@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Export Events</title>
+        <meta name="viewport" content="initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="http://snowbird.watchwith.com/~kirk/assets/bootstrap.min.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="moment.js"></script>
+        <script src="csv-export.js"></script>
+        <script src="script.js"></script>
+        <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
+        <style type="text/css">
+            .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+                background: #77b300 url() 50% 50% repeat-x;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                     </button>
+                    <a class="navbar-brand" href="http://watchwith.com"><img src="//snowbird.watchwith.com/~kirk/assets/black-logo.svg" width="125px" /></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="mailto:support@watchwith.com?Subject=Rundown%20Support">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col col-sm-4">
+                    <h3>Input</h3>
+                    <div class="row">
+                        <div class="col col-sm-6">
+                            <div class="form-group">
+                                <label for="channel">Channel</label>
+                                <input class="form-control" id="channel" placeholder="e.g. CL123456">
+                            </div>
+                        </div>
+                        <div class="col col-sm-6">
+                            <div class="form-group">
+                                <label for="key">Access Key</label>
+                                <input class="form-control" id="key" placeholder="e.g. HGSJEBSHSBD">
+                            </div>
+                        </div>
+                        <div class="col col-sm-6">
+                            <div class="form-group">
+                                <label for="start-date">Start Date</label>
+                                <input class="form-control" type="text" id="start">
+                            </div>
+                        </div>
+                        <div class="col col-sm-6">
+                            <div class="form-group">
+                                <label for="end-date">End Date</label>
+                                <input class="form-control" type="text" id="end">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message">
+                    </div>
+                    <button class="btn btn-success" id="go" onclick="w.getGuide()"><span id="no">Export TSV</span><span id="yes" style="display: none;">Processing ... <img src="ajax-loader.gif" width="18px"/></span></button>
+                    <button class="copy btn btn-info" onclick="w.copy()"><span class="glyphicon glyphicon glyphicon-copy" aria-hidden="true"></span></button>
+                </div>
+                <div class="col col-sm-8">
+                    <h3>Export Log</h3>
+                    <table class="table">
+                        <thead>
+                            <td>Time</td>
+                            <td>Channel</td>
+                            <td>Key</td>
+                            <td># of Airings</td>
+                            <td># of Events</td>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-sm-12">
+                    <h3>Columns</h3>
+                </div>
+                <ol>
+                    <div class="col col-sm-6 col-md-4 col-lg-3">
+                        <div id="columns-0">
+                        </div>
+                    </div>
+                    <div class="col col-sm-6 col-md-4 col-lg-3">
+                        <div id="columns-1">
+                        </div>
+                    </div>
+                    <div class="col col-sm-6 col-md-4 col-lg-3">
+                        <div id="columns-2">
+                        </div>
+                    </div>
+                    <div class="col col-sm-6 col-md-4 col-lg-3">
+                        <div id="columns-3">
+                        </div>
+                    </div>
+                </ol>
+            </div>
+            <div style="height: 200px"></div>
+        </div>
+        <input type="text" id="copy" style="opacity: 0; margin-left: -9999px;"></input>
+    </body>
+</html>
