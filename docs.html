@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Export Events</title>
+        <meta name="viewport" content="initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="http://snowbird.watchwith.com/~kirk/assets/bootstrap.min.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="moment.js"></script>
+        <script src="csv-export.js"></script>
+        <script src="script.js"></script>
+        <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
+        <style type="text/css">
+            .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+                background: #77b300 url() 50% 50% repeat-x;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                     </button>
+                    <a class="navbar-brand" href="http://watchwith.com"><img src="//snowbird.watchwith.com/~kirk/assets/black-logo.svg" width="125px" /></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="./">Export</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <a href="./"><button class="btn btn-primary">&#8592 Back to Export</button></a>
+            <h3>Documentation</h3>
+            <p>The Events Export application queries the Watchwith Airings API using the given parameters, and generates a tab-delimited file (TSV) representing all events in the query response. Exported files can be imported into a business intelligence tool to support analysis of event-level metadata.</p>
+            <h4>Query parameters:</h4>
+            <ul>
+                <li>Channel: The Watchwith channel ID for the channel on which Airings are to be queried.</li>
+                <li>Access Key: The Watchwith Application Key to which the Airings to be queried are syndicated.</li>
+                <li>Start Date / End Date: The date range for the query. Specified date is from 00:00:00-23:59:59 in the channel's time zone.</li>
+            </ul>
+            <h4>Actions:</h4>
+            <ul>
+                <li>Export TSV: Runs the query with given parameters, and generates a TSV file with the results. File name is formated as such: export-{channel}_{key}_{date}_{utc time}.tsv</li>
+                <li>Copy URL to Clipboard: Copies configured URL to the system clipboard. Useful to copy specific query URLs after they have been run.</li>
+            </ul>
+            <h4>Information:</h4>
+            <ul>
+                <li>Columns: Columnar display of events from last export during current session.</li>
+                <li>Export Log: List of previously run exports during current session.</li>
+            </ul>
+        </div>
+        <input type="text" id="copy" style="opacity: 0; margin-left: -9999px;"></input>
+    </body>
+</html>

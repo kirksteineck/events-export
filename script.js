@@ -176,6 +176,10 @@
   }
 
   $(document).ready(function(){
+
+    // Hover tooltipx
+    $('button').tooltip();
+
     $("#start, #end").datepicker();
 
     var channel = w.getAllUrlParams().channel || '';
@@ -272,6 +276,7 @@
     w.message('URL copied to clipboard', 'success');
 
   }
+
 })(window);
 
 
